@@ -6,7 +6,7 @@ import os
 import inspect
 import time
 
-from core._time import now
+from core.time_helper import now
 from config import api_configuration
 from config import network_configuration
 from lib.ip2location import IP2Location
@@ -105,12 +105,13 @@ def insert_events_in_bulk():
 
 
 def insert_bulk_events_from_thread():
-    '''
+    """
     Thread function for inserting bulk events in a thread
-    '''
+    :return: True/None
+    """
     while True:
         insert_events_in_bulk()
-        time.sleep(60)
+        time.sleep(3)
     return True
 
 
